@@ -10,7 +10,7 @@ export default function CharacterCard({ character }) {
         alt={character.name}
         width={110}
         height={110}
-        className="rounded-full border-4 border-blue-400 mb-3 shadow-lg object-cover bg-white group-hover:ring-4 group-hover:ring-blue-200 transition-all"
+        className="rounded-full aspect-square border-4 border-blue-400 mb-3 shadow-lg object-cover bg-white group-hover:ring-4 group-hover:ring-blue-200 transition-all"
         loading="lazy"
       />
       <h3 className="text-xl font-extrabold text-blue-700 text-center mb-1 drop-shadow">{character.name}</h3>

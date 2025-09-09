@@ -10,9 +10,28 @@ export default function CharactersPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Mapeamento de imagens dos personagens
+  const characterImages = {
+    "Gerald Broflovski": "/gerald.png",
+    "Sheila Broflovski": "/sheila.png",
+    "Kyle Broflovski": "/kyle.png",
+    "Ike Broflovski": "/ike.png",
+    // Adicione mais personagens conforme necessário
+  };
   useEffect(() => {
     api.get("characters")
-      .then(res => setCharacters(res.data.data))
+      .then(res => {
+        // Adiciona a imagem ao personagem, se existir no mapeamento
+        const charsWithImages = res.data.data.map((char, idx) => {
+          // Força os 4 primeiros personagens a receberem as imagens locais
+          if (idx === 0) return { ...char, image: "/Gerald Broflovski.png" };
+          if (idx === 1) return { ...char, image: "/Sheila Broflovski.png" };
+          if (idx === 2) return { ...char, image: "/Kyle Broflovski.png" };
+          if (idx === 3) return { ...char, image: "/Ike Broflovski.png" };
+          return { ...char };
+        });
+        setCharacters(charsWithImages);
+      })
       .catch(() => setError("Erro ao carregar personagens."))
       .finally(() => setLoading(false));
   }, []);
@@ -56,7 +75,7 @@ export default function CharactersPage() {
           {!loading && !error && (
             <div className="bg-white/60 backdrop-blur-md rounded-3xl p-8 shadow-2xl border border-blue-200">
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                {characters.map((char) => (
+                {characters.slice(0, 4).map((char) => (
                   <CharacterCard key={char.id} character={char} />
                 ))}
               </div>
