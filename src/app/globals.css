@@ -12,6 +12,48 @@
 .animate-bounce-slow {
   animation: bounce-slow 2.2s infinite alternate cubic-bezier(.68,-0.55,.27,1.55);
 }
+
+/* Animações para página 404 */
+@keyframes fadeInUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes glow {
+  0%, 100% { 
+    filter: drop-shadow(0 0 20px rgba(147, 197, 253, 0.5)); 
+  }
+  50% { 
+    filter: drop-shadow(0 0 40px rgba(147, 197, 253, 0.8)); 
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(147, 197, 253, 0.5); 
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(147, 197, 253, 0.8); 
+  }
+}
+
 @import "tailwindcss";
 
 :root {
