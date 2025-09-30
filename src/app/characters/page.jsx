@@ -51,9 +51,13 @@ export default function CharactersPage() {
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-blue-600 font-medium mb-6 sm:mb-8">Explore o incrível mundo criado por Trey Parker e Matt Stone</p>
             
-            <div className="flex justify-center mb-8 sm:mb-12">
-              <a href="/" className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-700 to-blue-500 text-white rounded-full shadow-xl hover:from-blue-800 hover:to-blue-600 hover:scale-105 transition-all font-bold text-sm sm:text-base md:text-lg flex items-center gap-2">
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8 sm:mb-12">
+              <a href="/" className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-700 to-blue-500 text-white rounded-full shadow-xl hover:from-blue-800 hover:to-blue-600 hover:scale-105 transition-all font-bold text-sm sm:text-base md:text-lg flex items-center gap-2 justify-center">
                 🏠 Voltar à Home
+              </a>
+              
+              <a href="/characters/create" className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-green-700 to-green-500 text-white rounded-full shadow-xl hover:from-green-800 hover:to-green-600 hover:scale-105 transition-all font-bold text-sm sm:text-base md:text-lg flex items-center gap-2 justify-center">
+                ➕ Criar Personagem
               </a>
             </div>
           </div>

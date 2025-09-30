@@ -14,8 +14,33 @@ export default function CharacterCard({ character }) {
         loading="lazy"
       />
       <h3 className="text-xl font-extrabold text-blue-700 text-center mb-1 drop-shadow">{character.name}</h3>
-      <p className="text-sm text-blue-900 mb-3 text-center italic">{character.occupation || "Ocupação desconhecida"}</p>
-      <Link href={`/characters/${character.id}`} className="mt-auto px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-400 text-white rounded-full shadow hover:from-blue-700 hover:to-blue-500 hover:scale-105 transition-all font-bold text-sm">Detalhes</Link>
+      <p className="text-sm text-blue-900 mb-4 text-center italic">{character.occupation || "Ocupação desconhecida"}</p>
+      
+      {/* Botões de ação */}
+      <div className="flex flex-col gap-2 w-full mt-auto">
+        <Link 
+          href={`/characters/${character.id}`} 
+          className="px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-400 text-white rounded-full shadow hover:from-blue-700 hover:to-blue-500 hover:scale-105 transition-all font-bold text-sm text-center"
+        >
+          👁️ Detalhes
+        </Link>
+        
+        <div className="flex gap-2">
+          <Link 
+            href={`/characters/edit/${character.id}`} 
+            className="flex-1 px-3 py-2 bg-gradient-to-r from-green-600 to-green-400 text-white rounded-full shadow hover:from-green-700 hover:to-green-500 hover:scale-105 transition-all font-bold text-xs text-center"
+          >
+            ✏️ Editar
+          </Link>
+          
+          <Link 
+            href={`/characters/delete/${character.id}`} 
+            className="flex-1 px-3 py-2 bg-gradient-to-r from-red-600 to-red-400 text-white rounded-full shadow hover:from-red-700 hover:to-red-500 hover:scale-105 transition-all font-bold text-xs text-center"
+          >
+            🗑️ Excluir
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }
